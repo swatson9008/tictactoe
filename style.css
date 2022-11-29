@@ -1,5 +1,54 @@
 
-#squares {
-    width: 50px;
-    border: 2px solid black;
-};
+#playBoard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 300px;
+    
+}
+
+.squares {
+    min-width: 100px;
+}
+
+
+#box0 {
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#box1 {
+    
+    border-bottom: 2px solid black;
+}
+
+#box2 {
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#box3 {
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#box4 {
+    border:2px solid black;
+}
+
+#box5 {
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#box6 {
+    border-right: 2px solid black;
+
+}
+
+#box7 {
+    border-top: 2px solid black;
+}
+
+#box8 {
+    border-left: 2px solid black;
+}

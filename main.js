@@ -1,5 +1,7 @@
 let playBoard = document.getElementById("playBoard");
 let turnOrder = 1;
+let squareBoard = document.getElementsByClassName("squares");
+
 
 
 function GameBoard(){
@@ -8,11 +10,14 @@ function GameBoard(){
     
     
     gameBArray.forEach(createSquares)};
+
     
-    function createSquares(){
+function createSquares(element, index){
     squares = document.createElement("div");
     squares.classList.add("squares");
     squares.innerHTML = "X";
+    squares.id = "box" + index;
+    squares.addEventListener("click", clickedSquares);
     playBoard.appendChild(squares);
 
    
@@ -24,19 +29,29 @@ function GameBoard(){
 GameBoard();
 
 const playerS = (No, Score) => {
-    const checkStatus = () => console.log("status report in");
-    return {No, Score, checkStatus};
+    
 };
 
 let firstPlayer = playerS(1, 0);
 
 let secondPlayer = playerS(2, 0);
 
-console.log(firstPlayer.checkStatus());
+
+
+
 
 function clickedSquares(){
 
-    if (turnOrder % 2 == 0){innerHTML = "O"}
-    else (innerHTML = "X");
+    if (turnOrder % 2 == 0){textContent = "O"}
+    else (textContent = "X");
     turnOrder += 1;
+    console.log(turnOrder);
+
+    /*removeEventListener
+
+    checkWin();*/
+}
+
+function checkWin(){
+
 }
