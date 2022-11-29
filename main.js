@@ -15,7 +15,7 @@ function GameBoard(){
 function createSquares(element, index){
     squares = document.createElement("div");
     squares.classList.add("squares");
-    squares.innerHTML = "X";
+    squares.innerHTML = "-";
     squares.id = "box" + index;
     squares.addEventListener("click", clickedSquares);
     playBoard.appendChild(squares);
@@ -40,10 +40,11 @@ let secondPlayer = playerS(2, 0);
 
 
 
-function clickedSquares(){
+function clickedSquares(e){
 
-    if (turnOrder % 2 == 0){textContent = "O"}
-    else (textContent = "X");
+    if (e.target.textContent === "O" || e.target.textContent === "X"){return ""}
+    else if (turnOrder % 2 == 0){e.target.textContent = "O"}
+    else (e.target.textContent = "X");
     turnOrder += 1;
     console.log(turnOrder);
 
