@@ -1,6 +1,7 @@
 let playBoard = document.getElementById("playBoard");
 let turnOrder = 1;
 let squareBoard = document.getElementsByClassName("squares");
+let winConditions = [];
 
 
 
@@ -16,8 +17,9 @@ function createSquares(element, index){
     squares = document.createElement("div");
     squares.classList.add("squares");
     squares.innerHTML = "-";
-    squares.id = "box" + index;
+    squares.id = index;
     squares.addEventListener("click", clickedSquares);
+    winConditions.push("E");
     playBoard.appendChild(squares);
 
    
@@ -28,13 +30,17 @@ function createSquares(element, index){
 
 GameBoard();
 
-const playerS = (No, Score) => {
-    
+console.log(winConditions);
+
+const playerS = (name) => {
+    return {name};
 };
 
-let firstPlayer = playerS(1, 0);
+let firstPlayer = playerS("player1");
 
-let secondPlayer = playerS(2, 0);
+let secondPlayer = playerS("player2");
+
+console.log(firstPlayer.name);
 
 
 
@@ -43,16 +49,32 @@ let secondPlayer = playerS(2, 0);
 function clickedSquares(e){
 
     if (e.target.textContent === "O" || e.target.textContent === "X"){return ""}
-    else if (turnOrder % 2 == 0){e.target.textContent = "O"}
-    else (e.target.textContent = "X");
+    else if (turnOrder % 2 == 0)
+    {e.target.textContent = "O";
+    winConditions.splice(e.target.id, 1, "O")}
+    else {e.target.textContent = "X";
+    winConditions.splice(e.target.id, 1, "X")};
+    console.log(winConditions);
     turnOrder += 1;
     console.log(turnOrder);
+    checkWin();
+    checkTie();
+    console.log(checkTie());
+}
 
-    /*removeEventListener
 
-    checkWin();*/
+
+function checkTie(){
+    if (winConditions.includes("E") === false)
+    {return "its a tie"}
+    else {};
+    
 }
 
 function checkWin(){
+
+    /*switch(winConditions){
+        case ""
+    }*/
 
 }
