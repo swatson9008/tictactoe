@@ -1,8 +1,14 @@
 let playBoard = document.getElementById("playBoard");
 let turnOrder = 1;
 let squareBoard = document.getElementsByClassName("squares");
+let restartB = document.getElementById("restartButton");
+let winnerB = document.getElementById("winnerBoard");
+let squareR = document.querySelectorAll(".squares")
 let winConditions = [];
 let knownWinner;
+
+
+
 
 
 
@@ -15,13 +21,14 @@ function GameBoard(){
 
     
 function createSquares(element, index){
-    squares = document.createElement("div");
+    let squares = document.createElement("div");
     squares.classList.add("squares");
     squares.innerHTML = "-";
     squares.id = index;
-    squares.addEventListener("click", clickedSquares);
+    squares.addEventListener("click", clickedSquares, {once : true});
     winConditions.push("E");
     playBoard.appendChild(squares);
+   
 
    
    return gameBArray;
@@ -61,55 +68,74 @@ function clickedSquares(e){
     checkWin();
     checkTie();
     
-}
+};
 
 
 function checkWin(){
     if (winConditions[0] === "X" && winConditions[1] === "X" && winConditions[2] === "X")
         {knownWinner = "X"}
     else if (winConditions[0] === "X" && winConditions[3] === "X" && winConditions[6] === "X")
-        {console.log("Player 1 Wins")}
+        {knownWinner = "X"}
     else if (winConditions[0] === "X" && winConditions[4] === "X" && winConditions[8] === "X")
-        {console.log("Player 1 Wins")}
+        {knownWinner = "X"}
     else if (winConditions[1] === "X" && winConditions[4] === "X" && winConditions[7] === "X")
-        {console.log("Player 1 Wins")}
+        {knownWinner = "X"}
     else if (winConditions[3] === "X" && winConditions[4] === "X" && winConditions[5] === "X")
-        {console.log("Player 1 Wins")}
+        {knownWinner = "X"}
     else if (winConditions[2] === "X" && winConditions[5] === "X" && winConditions[8] === "X")
-        {console.log("Player 1 Wins")}
+        {knownWinner = "X"}
     else if (winConditions[2] === "X" && winConditions[4] === "X" && winConditions[6] === "X")
-        {console.log("Player 1 Wins")}
+        {knownWinner = "X"}
     else if (winConditions[6] === "X" && winConditions[7] === "X" && winConditions[8] === "X")
-        {console.log("Player 1 Wins")}
+        {knownWinner = "X"}
 
     else if (winConditions[0] === "O" && winConditions[1] === "O" && winConditions[2] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else if (winConditions[0] === "O" && winConditions[3] === "O" && winConditions[6] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else if (winConditions[0] === "O" && winConditions[4] === "O" && winConditions[8] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else if (winConditions[1] === "O" && winConditions[4] === "O" && winConditions[7] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else if (winConditions[3] === "O" && winConditions[4] === "O" && winConditions[5] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else if (winConditions[2] === "O" && winConditions[5] === "O" && winConditions[8] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else if (winConditions[2] === "O" && winConditions[4] === "O" && winConditions[6] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else if (winConditions[6] === "O" && winConditions[7] === "O" && winConditions[8] === "O")
-        {console.log("Player 2 Wins")}
+        {knownWinner = "O"}
     else {return ""};
 
+    console.log(knownWinner);
 
-}
+    congratWinner(knownWinner);
 
+
+};
+
+function congratWinner() {
+
+winnerB.textContent = knownWinner + " is the Winner!";
+squareR.forEach(squareR => squareR.removeEventListener("click", clickedSquares));
+};
 
 function checkTie(){
     if (winConditions.includes("E") === false)
     {console.log("It's a tie")}
     else {};
     
-}
+};
+
+restartB.addEventListener("click", () => {restartGame()});
+
+function restartGame(){
+    winnerB.innerHTML = "";
+    playBoard.textContent = "";
+    winConditions = [];
+    GameBoard();
+    console.log("test");
+};
 
 /*let WinCheck = Array => {
 
