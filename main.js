@@ -2,6 +2,7 @@ let playBoard = document.getElementById("playBoard");
 let turnOrder = 1;
 let squareBoard = document.getElementsByClassName("squares");
 let winConditions = [];
+let knownWinner;
 
 
 
@@ -59,22 +60,69 @@ function clickedSquares(e){
     console.log(turnOrder);
     checkWin();
     checkTie();
-    console.log(checkTie());
+    
 }
 
+
+function checkWin(){
+    if (winConditions[0] === "X" && winConditions[1] === "X" && winConditions[2] === "X")
+        {knownWinner = "X"}
+    else if (winConditions[0] === "X" && winConditions[3] === "X" && winConditions[6] === "X")
+        {console.log("Player 1 Wins")}
+    else if (winConditions[0] === "X" && winConditions[4] === "X" && winConditions[8] === "X")
+        {console.log("Player 1 Wins")}
+    else if (winConditions[1] === "X" && winConditions[4] === "X" && winConditions[7] === "X")
+        {console.log("Player 1 Wins")}
+    else if (winConditions[3] === "X" && winConditions[4] === "X" && winConditions[5] === "X")
+        {console.log("Player 1 Wins")}
+    else if (winConditions[2] === "X" && winConditions[5] === "X" && winConditions[8] === "X")
+        {console.log("Player 1 Wins")}
+    else if (winConditions[2] === "X" && winConditions[4] === "X" && winConditions[6] === "X")
+        {console.log("Player 1 Wins")}
+    else if (winConditions[6] === "X" && winConditions[7] === "X" && winConditions[8] === "X")
+        {console.log("Player 1 Wins")}
+
+    else if (winConditions[0] === "O" && winConditions[1] === "O" && winConditions[2] === "O")
+        {console.log("Player 2 Wins")}
+    else if (winConditions[0] === "O" && winConditions[3] === "O" && winConditions[6] === "O")
+        {console.log("Player 2 Wins")}
+    else if (winConditions[0] === "O" && winConditions[4] === "O" && winConditions[8] === "O")
+        {console.log("Player 2 Wins")}
+    else if (winConditions[1] === "O" && winConditions[4] === "O" && winConditions[7] === "O")
+        {console.log("Player 2 Wins")}
+    else if (winConditions[3] === "O" && winConditions[4] === "O" && winConditions[5] === "O")
+        {console.log("Player 2 Wins")}
+    else if (winConditions[2] === "O" && winConditions[5] === "O" && winConditions[8] === "O")
+        {console.log("Player 2 Wins")}
+    else if (winConditions[2] === "O" && winConditions[4] === "O" && winConditions[6] === "O")
+        {console.log("Player 2 Wins")}
+    else if (winConditions[6] === "O" && winConditions[7] === "O" && winConditions[8] === "O")
+        {console.log("Player 2 Wins")}
+    else {return ""};
+
+
+}
 
 
 function checkTie(){
     if (winConditions.includes("E") === false)
-    {return "its a tie"}
+    {console.log("It's a tie")}
     else {};
     
 }
 
-function checkWin(){
+/*let WinCheck = Array => {
 
-    /*switch(winConditions){
-        case ""
-    }*/
+let WinX = ["X", "X", "X", "X", "X", "X", "X", "X", "X"];
+
+let WinO = ["O", "O", "O", "O", "O", "O", "O", "O", "O"];
+
+WinS {}
 
 }
+
+/*let WinX1 = ["X", "X", "X", ".", ".", ".", ".", ".", "."];
+
+let WinX2 = ["X", "X", "X", "O", "O", "O", "O", "O", "O"];
+
+console.log(WinX1[0] === WinX2[0]);*/
