@@ -1,9 +1,8 @@
 let playBoard = document.getElementById("playBoard");
 let turnOrder = 1;
-let squareBoard = document.getElementsByClassName("squares");
 let restartB = document.getElementById("restartButton");
+let squareBoard = document.getElementsByClassName("squares");
 let winnerB = document.getElementById("winnerBoard");
-let squareR = document.querySelectorAll(".squares")
 let winConditions = [];
 let knownWinner;
 
@@ -115,7 +114,7 @@ function checkWin(){
 };
 
 function congratWinner() {
-
+let squareR = document.querySelectorAll(".squares");
 winnerB.textContent = knownWinner + " is the Winner!";
 squareR.forEach(squareR => squareR.removeEventListener("click", clickedSquares));
 };
