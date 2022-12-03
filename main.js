@@ -1,6 +1,7 @@
 let playBoard = document.getElementById("playBoard");
 let turnOrder = 1;
 let restartB = document.getElementById("restartButton");
+let restartS = document.getElementById("restartB");
 let squareBoard = document.getElementsByClassName("squares");
 let winnerB = document.getElementById("winnerBoard");
 let winConditions = [];
@@ -62,6 +63,7 @@ let playerCreate = (e) => {
     P2Status.textContent = "Player 2 " + playerTwo;
     playerNameEntry.appendChild(P2Status);
     GameBoard();
+    restartS.style.removeProperty("display");
     playerNameForm.innerHTML = "";
     return {playerOne, playerTwo};
     
