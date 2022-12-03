@@ -5,8 +5,10 @@ let squareBoard = document.getElementsByClassName("squares");
 let winnerB = document.getElementById("winnerBoard");
 let winConditions = [];
 let knownWinner;
-
-
+let getName = document.getElementById("enterName");
+/*let P1Name = document.getElementById("pName1E").value;
+let P2Name = document.getElementById("pName2E").value;*/
+let playerNameEntry = document.getElementById("playerNameEntries");
 
 
 
@@ -39,16 +41,35 @@ GameBoard();
 
 console.log(winConditions);
 
-const playerS = (name) => {
-    return {name};
+
+
+const players = (e) => {
+
+
+let playerOne = "Player 1";
+let playerTwo = "Player 2";
+    
+
+let playerCreate = (e) => {
+    e.preventDefault();
+    console.log("test");
+    playerOne = document.getElementById("pName1E").value;
+    playerTwo = document.getElementById("pName2E").value;
+    let P1Status = document.createElement("div");
+    P1Status.textContent = "Player 1 " + playerOne;
+    playerNameEntry.appendChild(P1Status);
+    let P2Status = document.createElement("div");
+    P2Status.textContent = "Player 2 " + playerTwo;
+    playerNameEntry.appendChild(P2Status);
+    
+}
+
+return {playerCreate, playerOne, playerTwo}
 };
 
-let firstPlayer = playerS("player1");
+const newPlayers = players();
 
-let secondPlayer = playerS("player2");
-
-console.log(firstPlayer.name);
-
+getName.addEventListener("click", newPlayers.playerCreate);
 
 
 
@@ -121,7 +142,7 @@ squareR.forEach(squareR => squareR.removeEventListener("click", clickedSquares))
 
 function checkTie(){
     if (winConditions.includes("E") === false)
-    {console.log("It's a tie")}
+    {winnerB.textContent = "It's a tie!";}
     else {};
     
 };
@@ -136,18 +157,3 @@ function restartGame(){
     console.log("test");
 };
 
-/*let WinCheck = Array => {
-
-let WinX = ["X", "X", "X", "X", "X", "X", "X", "X", "X"];
-
-let WinO = ["O", "O", "O", "O", "O", "O", "O", "O", "O"];
-
-WinS {}
-
-}
-
-/*let WinX1 = ["X", "X", "X", ".", ".", ".", ".", ".", "."];
-
-let WinX2 = ["X", "X", "X", "O", "O", "O", "O", "O", "O"];
-
-console.log(WinX1[0] === WinX2[0]);*/
