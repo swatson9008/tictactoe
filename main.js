@@ -9,6 +9,7 @@ let getName = document.getElementById("enterName");
 /*let P1Name = document.getElementById("pName1E").value;
 let P2Name = document.getElementById("pName2E").value;*/
 let playerNameEntry = document.getElementById("playerNameEntries");
+let playerNameForm = document.getElementById("playerNameForm");
 
 
 
@@ -61,6 +62,7 @@ let playerCreate = (e) => {
     P2Status.textContent = "Player 2 " + playerTwo;
     playerNameEntry.appendChild(P2Status);
     GameBoard();
+    playerNameForm.innerHTML = "";
     return {playerOne, playerTwo};
     
 }
