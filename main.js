@@ -7,8 +7,6 @@ let winnerB = document.getElementById("winnerBoard");
 let winConditions = [];
 let knownWinner;
 let getName = document.getElementById("enterName");
-/*let P1Name = document.getElementById("pName1E").value;
-let P2Name = document.getElementById("pName2E").value;*/
 let playerNameEntry = document.getElementById("playerNameEntries");
 let playerNameForm = document.getElementById("playerNameForm");
 
@@ -146,11 +144,7 @@ function checkWin(){
 
 };
 
-/*function congratWinner() {
-let squareR = document.querySelectorAll(".squares");
-winnerB.textContent = knownWinner + " is the Winner!";
-squareR.forEach(squareR => squareR.removeEventListener("click", clickedSquares));
-};*/
+
 
 function checkTie(){
     if (winConditions.includes("E") === false)
