@@ -37,7 +37,7 @@ function createSquares(element, index){
    
 };
 
-GameBoard();
+
 
 console.log(winConditions);
 
@@ -52,7 +52,6 @@ let playerTwo = "Player 2";
 
 let playerCreate = (e) => {
     e.preventDefault();
-    console.log("test");
     playerOne = document.getElementById("pName1E").value;
     playerTwo = document.getElementById("pName2E").value;
     let P1Status = document.createElement("div");
@@ -61,10 +60,19 @@ let playerCreate = (e) => {
     let P2Status = document.createElement("div");
     P2Status.textContent = "Player 2 " + playerTwo;
     playerNameEntry.appendChild(P2Status);
+    GameBoard();
+    return {playerOne, playerTwo};
     
 }
 
-return {playerCreate, playerOne, playerTwo}
+let congratWinner = () => {
+    let squareR = document.querySelectorAll(".squares");
+    if (knownWinner === "X"){winnerB.textContent = playerOne + " is the Winner!"}
+    if (knownWinner === "O"){winnerB.textContent = playerTwo + " is the Winner!"}
+    squareR.forEach(squareR => squareR.removeEventListener("click", clickedSquares));
+};
+
+return {playerCreate, congratWinner}
 };
 
 const newPlayers = players();
@@ -127,18 +135,18 @@ function checkWin(){
         {knownWinner = "O"}
     else {return ""};
 
-    console.log(knownWinner);
+    
 
-    congratWinner(knownWinner);
+    newPlayers.congratWinner(knownWinner);
 
 
 };
 
-function congratWinner() {
+/*function congratWinner() {
 let squareR = document.querySelectorAll(".squares");
 winnerB.textContent = knownWinner + " is the Winner!";
 squareR.forEach(squareR => squareR.removeEventListener("click", clickedSquares));
-};
+};*/
 
 function checkTie(){
     if (winConditions.includes("E") === false)
