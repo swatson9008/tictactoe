@@ -100,7 +100,7 @@ function clickedSquares(e){
     turnOrder += 1;
     console.log(turnOrder);
     checkWin();
-    checkTie();
+    
     
 };
 
@@ -139,7 +139,7 @@ function checkWin(){
         {knownWinner = "O"}
     else if (winConditions[6] === "O" && winConditions[7] === "O" && winConditions[8] === "O")
         {knownWinner = "O"}
-    else {return ""};
+    else {return checkTie()};
 
     
 
