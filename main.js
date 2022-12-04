@@ -1,3 +1,5 @@
+//global variables
+
 let playBoard = document.getElementById("playBoard");
 let turnOrder = 1;
 let restartB = document.getElementById("restartButton");
@@ -12,7 +14,7 @@ let playerNameForm = document.getElementById("playerNameForm");
 
 
 
-
+//creates the gameboard
 function GameBoard(){
    
     gameBArray = new Array("O", "X", "O", "X", "O", "X", "O", "X", "O");
@@ -39,9 +41,9 @@ function createSquares(element, index){
 
 
 
-console.log(winConditions);
 
 
+//factory that creates the players and congrats them
 
 const players = (e) => {
 
@@ -85,7 +87,7 @@ getName.addEventListener("click", newPlayers.playerCreate);
 
 
 
-
+//function that detects when a square is clicked
 function clickedSquares(e){
 
     if (e.target.textContent === "O" || e.target.textContent === "X"){return ""}
@@ -102,7 +104,7 @@ function clickedSquares(e){
     
 };
 
-
+//checks for a winning combination
 function checkWin(){
     if (winConditions[0] === "X" && winConditions[1] === "X" && winConditions[2] === "X")
         {knownWinner = "X"}
@@ -147,7 +149,7 @@ function checkWin(){
 };
 
 
-
+//checks for a tie
 function checkTie(){
     if (winConditions.includes("E") === false)
     {winnerB.textContent = "It's a tie!";}
@@ -155,6 +157,7 @@ function checkTie(){
     
 };
 
+//restarts the game
 restartB.addEventListener("click", () => {restartGame()});
 
 function restartGame(){
