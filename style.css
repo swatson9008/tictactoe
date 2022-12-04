@@ -5,6 +5,16 @@ body {
     background-color: #E5D9B6;
 }
 
+input, button {
+  border:none;
+}
+
+#TTTtitle {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+
 #maincontainer {
     min-width: 400px;
     margin-top: 20px;
@@ -45,4 +55,31 @@ body {
     margin-left: 150px;
 }
 
+#winnerBoard {
+    text-align: center;
+}
+
+#footer {
+    background-color: #748655;
+    position:absolute;
+    bottom:0;
+    margin-left: 135px;
+    width: fit-content;
+    color: aliceblue;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    
+}
+
+#enterName, #restartButton {
+
+border-radius: 5px;
+background-color: #748655;
+color: aliceblue;
+padding: 5px;
+
+}
 

@@ -54,6 +54,8 @@ let playerCreate = (e) => {
     e.preventDefault();
     playerOne = document.getElementById("pName1E").value;
     playerTwo = document.getElementById("pName2E").value;
+    if (playerOne === "" || playerTwo === "")
+    {return alert("Please Enter Two Names")}
     let P1Status = document.createElement("div");
     P1Status.textContent = "Player 1 " + playerOne;
     playerNameEntry.appendChild(P1Status);
