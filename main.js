@@ -165,6 +165,5 @@ function restartGame(){
     playBoard.textContent = "";
     winConditions = [];
     GameBoard();
-    console.log("test");
 };
 
